@@ -1,0 +1,54 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Kingfisher (4.10.1)
+  - KWDrawerController (4.2):
+    - KWDrawerController/Core (= 4.2)
+  - KWDrawerController/Core (4.2)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya-ObjectMapper (2.8):
+    - Moya-ObjectMapper/Core (= 2.8)
+  - Moya-ObjectMapper/Core (2.8):
+    - Moya (~> 12.0)
+    - ObjectMapper (~> 3.4)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - ObjectMapper (3.5.2)
+  - Result (4.1.0)
+  - SimpleCheckbox (2.1.0)
+  - SimpleTwoWayBinding (0.0.2)
+
+DEPENDENCIES:
+  - Kingfisher
+  - KWDrawerController
+  - Moya-ObjectMapper
+  - SimpleCheckbox
+  - SimpleTwoWayBinding
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - KWDrawerController
+    - Moya
+    - Moya-ObjectMapper
+    - ObjectMapper
+    - Result
+    - SimpleCheckbox
+    - SimpleTwoWayBinding
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  KWDrawerController: 244ecb42378bd13a56826458647b76758db5cb67
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
+  SimpleTwoWayBinding: 728d751c25d9909ddf2ee76711ab4a8a71e00c69
+
+PODFILE CHECKSUM: b8af2caea64f9355ecc9ed8b2a124f3d6fe1caed
+
+COCOAPODS: 1.8.4
