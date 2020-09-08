@@ -22,8 +22,8 @@ class LoginResponse: Mappable {
     
     func mapping(map: Map) {
         id             <- map["CustomerID"]
-        firstName      <- map["CustomerFirstName"]
-        lastName       <- map["CustomerLastName"]
+        firstName      <- map["FirstName"]
+        lastName       <- map["LastName"]
         errorDesc      <- map["Err_Desc"]
         errorFlag      <- map["Err_Flag"]
     }

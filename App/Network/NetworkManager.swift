@@ -12,12 +12,9 @@ import Moya_ObjectMapper
 
 class NetworkManager {
     
-    static let shared = NetworkManager()
+//    static let shared = NetworkManager()
     
     private let provider = MoyaProvider<ApiService>()
-    
-    private init() {}
-    
     
     
     func getHomeList(completion: @escaping ([Organization]?, String?) -> Void) {
@@ -49,8 +46,9 @@ class NetworkManager {
             switch result {
             case let .success(response):
                 do {
+                    let str = try response.mapString()
+                    debugPrint(str)
                     let registrationResponse = try response.mapObject(RegistrationResponse.self)
-                    
                     if registrationResponse.errorFlag != nil && registrationResponse.errorFlag == false {
                         completion (registrationResponse.id, nil)
                     } else {
@@ -72,6 +70,8 @@ class NetworkManager {
             switch result {
             case let .success(response):
                 do {
+                    let str = try response.mapString()
+                    debugPrint(str)
                     let loginResponse = try response.mapObject(LoginResponse.self)
                     
                     if loginResponse.errorFlag != nil && loginResponse.errorFlag == false {

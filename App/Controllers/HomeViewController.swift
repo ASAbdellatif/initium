@@ -44,14 +44,7 @@ class HomeViewController: UIViewController {
         mainView.roundCorners(radius: 20.0, borderWidth: 2.0, borderColor: .white)
         loginButton.roundCorners(radius: 10.0)
         
-        if Service.shared.isUserLoggedIn() {
-            bottomStackViwe.isHidden = true
-        } else {
-            bottomStackViwe.isHidden = false
-        }
-        
-        
-        NetworkManager.shared.getHomeList { (list, errorString) in
+        NetworkManager().getHomeList { (list, errorString) in
             if let organizationList = list {
                 self.organizations = organizationList
                 self.collectionView.reloadData()
@@ -61,6 +54,13 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if Service.shared.isUserLoggedIn() {
+            bottomStackViwe.isHidden = true
+        } else {
+            bottomStackViwe.isHidden = false
+        }
+    }
     
     // MARK:- Buttons actions
     

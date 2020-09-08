@@ -12,29 +12,24 @@ class Service {
     static let shared = Service()
     private init() {}
     
-    
     func isUserLoggedIn() -> Bool {
         return UserDefaults.standard.bool(forKey: "userLoggedIn")
     }
     
     func saveUser(firstName: String, lastName: String) {
         let defaults = UserDefaults.standard
-        defaults.set(firstName, forKey: "firstName")
-        defaults.set(lastName, forKey: "lastName")
+        let dic = ["firstName": firstName, "lastName": lastName]
+        defaults.set(dic, forKey: "customer")
         defaults.set(true, forKey: "userLoggedIn")
-
     }
     
     func getUser() -> (firstName: String, lastName: String) {
-        let firstName = UserDefaults.standard.string(forKey: "firstName")!
-        let lastName = UserDefaults.standard.string(forKey: "lastName")!
-
-        return (firstName, lastName)
+        let customer = UserDefaults.standard.dictionary(forKey: "customer") as! [String : String]
+        return (customer["firstName"]!, customer["lastName"]!)
     }
     func deleteUser() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "userLoggedIn")
-        defaults.removeObject(forKey: "lastName")
-        defaults.removeObject(forKey: "userLoggedIn")
+        defaults.removeObject(forKey: "customer")
     }
 }

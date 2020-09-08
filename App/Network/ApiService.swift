@@ -78,7 +78,7 @@ extension ApiService: TargetType {
                 "api-version": "2016-06-01",
                 "sp": "/triggers/manual/run",
                 "sv": "1.0",
-                "sig": "ncxT3y2VEzCw0b7xKIz75oINuFmNrlaeohK7SIYaORs"
+                "sig": "uoLTJf5Pf_LO8pZdhQvebsJ_FFMP9wMd0wNRjjCnY3U"
             ])
             
         case let .login(email, password):
@@ -89,7 +89,7 @@ extension ApiService: TargetType {
                     "api-version": "2016-06-01",
                     "sp": "/triggers/manual/run",
                     "sv": "1.0",
-                    "sig": "uoLTJf5Pf_LO8pZdhQvebsJ_FFMP9wMd0wNRjjCnY3U"
+                    "sig": "ncxT3y2VEzCw0b7xKIz75oINuFmNrlaeohK7SIYaORs"
             ])
         }
         

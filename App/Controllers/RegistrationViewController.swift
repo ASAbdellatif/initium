@@ -50,6 +50,7 @@ class RegistrationViewController: UIViewController {
         didSet {
             emailTextField.returnKeyType = .next
             emailTextField.delegate = self
+            emailTextField.keyboardType = .emailAddress
             emailTextField.tag = 4
         }
     }
@@ -118,9 +119,11 @@ class RegistrationViewController: UIViewController {
  //MARK:- backend
     
     @IBAction func registrationAction(_ sender: Any) {
-        NetworkManager.shared.register(model: model) { (id, errorString) in
+        NetworkManager().register(model: model) { (id, errorString) in
             if let _ = id {
-                Service.shared.saveUser(firstName: self.model.firstName.value!, lastName: self.model.lastName.value!)
+                let homeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+                    withIdentifier: "navController")
+                self.drawerController?.setViewController(homeController, for: .none)
             } else if let errorMessage = errorString {
                 print("Error: -- \(errorMessage)")
             }

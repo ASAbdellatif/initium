@@ -22,17 +22,17 @@ class SideViewController: UIViewController {
         }
     }
     
-    var isLogeddInUser = false
+    var isUserLoggedIn = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Header")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        isLogeddInUser = Service.shared.isUserLoggedIn()
+        isUserLoggedIn = Service.shared.isUserLoggedIn()
         tableView.reloadData()
         
-        if isLogeddInUser {
+        if isUserLoggedIn {
             welcomeLabel.text = "Welcome"
             let user = Service.shared.getUser()
             nameLabel.text = "\(user.firstName) \(user.lastName)"
@@ -46,7 +46,7 @@ class SideViewController: UIViewController {
 
 extension SideViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Service.shared.isUserLoggedIn() {
+        if isUserLoggedIn {
             return 2
         }
         return 3
@@ -61,7 +61,7 @@ extension SideViewController: UITableViewDataSource, UITableViewDelegate {
             image = UIImage(named: "Ic_home")
         }
         
-        if isLogeddInUser {
+        if isUserLoggedIn {
             if indexPath.row == 1 {
                 cell.titleLabel.text = "Log Out"
                 image = UIImage(named: "Ic_home")
@@ -83,12 +83,14 @@ extension SideViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isLogeddInUser {
-            Service.shared.deleteUser()
+        if isUserLoggedIn {
             let homeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
                 withIdentifier: "navController")
             self.drawerController?.setViewController(homeController, for: .none)
             self.drawerController?.closeSide()
+            if indexPath.row == 1 {
+                Service.shared.deleteUser()
+            }
         } else {
             switch indexPath.row {
             case 0:

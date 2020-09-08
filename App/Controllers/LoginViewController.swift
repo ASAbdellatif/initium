@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
         didSet {
             emailTextField.returnKeyType = .next
             emailTextField.delegate = self
+            emailTextField.keyboardType = .emailAddress
             emailTextField.tag = 0
         }
     }
@@ -37,9 +38,13 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginAction(_ sender: Any) {
-        NetworkManager.shared.login(email: emailTextField.text ?? "", password: passowrdTextField.text ?? "") { (data, errorString) in
+        
+        NetworkManager().login(email: emailTextField.text ?? "", password: passowrdTextField.text ?? "") { (data, errorString) in
             if let customer = data {
                 Service.shared.saveUser(firstName: customer.firstName, lastName: customer.lastName)
+                let homeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+                    withIdentifier: "navController")
+                self.drawerController?.setViewController(homeController, for: .none)
             } else if let errorMessage = errorString {
                 print("Error: -- \(errorMessage)")
             }
