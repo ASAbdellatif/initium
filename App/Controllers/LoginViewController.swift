@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var listBarButtonItem:UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class LoginViewController: UIViewController {
         mainView.roundCorners(radius: 20.0, borderWidth: 2.0, borderColor: .white)
         loginButton.roundCorners(radius: 10.0)
 
+    }
+    
+    @IBAction func openSideMenu(_ sendere: Any) {
+        self.drawerController?.openSide(.left)
     }
 
     @IBAction func loginAction(_ sender: Any) {

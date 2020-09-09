@@ -74,7 +74,8 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var agreeCheckBox: UIView!
     @IBOutlet weak var completeRegistrationButton: UIButton!
-    
+    @IBOutlet weak var listBarButtonItem:UIBarButtonItem!
+
     var model: RegistrationFormModel!
     
     override func viewDidLoad() {
@@ -116,7 +117,10 @@ class RegistrationViewController: UIViewController {
         retyprPasswordTextField.bind(with: model.retypePassword)
     }
     
-   
+    
+    @IBAction func openSideMenu(_ sendere: Any) {
+        self.drawerController?.openSide(.left)
+    }
 
  //MARK:- backend
     

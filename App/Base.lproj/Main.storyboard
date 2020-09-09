@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="198"/>
+            <point key="canvasLocation" x="452" y="226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XMn-Bf-UTj">
@@ -252,7 +252,17 @@
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW4-Xb-Az7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem id="6Vm-G9-173"/>
+                                    <navigationItem id="6Vm-G9-173">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="S9q-NJ-NLh">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="openSideMenu:" destination="DCT-Sa-06L" id="dIq-fm-Lez"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="VWn-fO-wBG">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-Kh-zcK" customClass="CircleView" customModule="App" customModuleProvider="target">
@@ -562,6 +572,7 @@
                         <outlet property="emailTextField" destination="g6y-jd-pAO" id="Fel-4T-2fY"/>
                         <outlet property="firstNameTextField" destination="13k-ag-0Vc" id="hs5-kH-gNE"/>
                         <outlet property="lastNameTextField" destination="Tfu-U5-27R" id="JWP-fi-yGs"/>
+                        <outlet property="listBarButtonItem" destination="S9q-NJ-NLh" id="8jb-JB-ZNN"/>
                         <outlet property="mainView" destination="VTU-zg-nro" id="fUm-TO-R3b"/>
                         <outlet property="mobileNumberTextField" destination="HtE-af-tMd" id="VNN-sq-e0B"/>
                         <outlet property="passwordTextField" destination="kdv-P1-YGy" id="mFl-Zj-eyw"/>
@@ -585,7 +596,17 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8en-q5-027">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem id="GYx-x9-57U"/>
+                                    <navigationItem id="GYx-x9-57U">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="beE-N6-Oty">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="openSideMenu:" destination="CMa-kw-VBZ" id="aHN-9J-Kdw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="6g0-vo-AKS">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mz-8G-ewk" customClass="CircleView" customModule="App" customModuleProvider="target">
@@ -711,6 +732,7 @@
                     <size key="freeformSize" width="414" height="796"/>
                     <connections>
                         <outlet property="emailTextField" destination="IgV-jo-0Qi" id="mQ8-6P-2GC"/>
+                        <outlet property="listBarButtonItem" destination="beE-N6-Oty" id="E3P-z2-qVU"/>
                         <outlet property="loginButton" destination="Twc-VB-Pid" id="x3o-jq-fqb"/>
                         <outlet property="mainView" destination="TQT-OB-ohO" id="DYq-2K-DK3"/>
                         <outlet property="passowrdTextField" destination="Z2r-9M-O8c" id="ZpM-52-Klr"/>
