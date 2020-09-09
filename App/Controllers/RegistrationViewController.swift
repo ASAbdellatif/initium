@@ -15,7 +15,9 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var agreeTextLabel: UILabel!
+    
     @IBOutlet weak var firstNameTextField: UITextField! {
         didSet {
             firstNameTextField.returnKeyType = .next
@@ -55,7 +57,6 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var passwordTextField: UITextField! {
         didSet {
             passwordTextField.returnKeyType = .next
@@ -76,13 +77,12 @@ class RegistrationViewController: UIViewController {
     
     var model: RegistrationFormModel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mainView.roundCorners(radius: 20.0, borderWidth: 2.0, borderColor: .white)
         completeRegistrationButton.roundCorners(radius: 10.0)
-//        completeRegistrationButton.isEnabled = false
+        completeRegistrationButton.isEnabled = false
         
         model = RegistrationFormModel()
         
@@ -91,17 +91,19 @@ class RegistrationViewController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
-    
     }
     
     func initCheckBox() {
         let checkbox = Checkbox(frame: agreeCheckBox.frame)
-        checkbox.valueChanged = { (value) in
-            self.completeRegistrationButton.isEnabled = true
+        checkbox.checkedBorderColor = .gray
+        checkbox.uncheckedBorderColor = .gray
+        checkbox.checkmarkColor = UIColor(named: "Header")
+
+        checkbox.valueChanged = { value in
+            self.completeRegistrationButton.isEnabled = value
         }
-        mainView.addSubview(checkbox)
-        agreeCheckBox.isHidden = true
+        stackView.addSubview(checkbox)
+        agreeCheckBox.backgroundColor = .clear
     }
     
     func setupBindings() {

@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().shadowImage = UIImage()
 
-        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
-            statusBar.backgroundColor = UIColor(named: "Header")
-        }
+//        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+//            statusBar.backgroundColor = UIColor(named: "Header")
+//        }
         
         return true
     }

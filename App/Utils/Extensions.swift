@@ -29,3 +29,13 @@ extension String {
         return data(using: .utf8)!
     }
 }
+
+extension UIButton {
+
+    open override var isEnabled: Bool{
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.5
+        }
+    }
+
+}

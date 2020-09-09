@@ -411,7 +411,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ik-6E-fOw">
                                                         <rect key="frame" x="90" y="730" width="200" height="50"/>
-                                                        <color key="backgroundColor" red="0.92156862745098034" green="0.33333333333333331" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="Header"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="1pm-Rq-d9C"/>
                                                             <constraint firstAttribute="height" constant="50" id="4gM-4B-dsK"/>
@@ -556,6 +556,7 @@
                     <size key="freeformSize" width="414" height="986"/>
                     <connections>
                         <outlet property="agreeCheckBox" destination="v4U-j0-izE" id="gyt-SC-Qbe"/>
+                        <outlet property="agreeTextLabel" destination="bEW-ia-bfH" id="WRj-fb-bpf"/>
                         <outlet property="civilIdTextField" destination="jMo-Fo-Ha0" id="nFa-nh-pD4"/>
                         <outlet property="completeRegistrationButton" destination="0ik-6E-fOw" id="Qvl-Ow-CMm"/>
                         <outlet property="emailTextField" destination="g6y-jd-pAO" id="Fel-4T-2fY"/>
@@ -566,6 +567,7 @@
                         <outlet property="passwordTextField" destination="kdv-P1-YGy" id="mFl-Zj-eyw"/>
                         <outlet property="retyprPasswordTextField" destination="JiF-bY-edm" id="M93-lI-nDx"/>
                         <outlet property="scrollView" destination="RWP-CT-RaA" id="6CE-Ds-1Fb"/>
+                        <outlet property="stackView" destination="Wlt-kF-M2H" id="ZeF-KO-VLV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9de-de-a0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
