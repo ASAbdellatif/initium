@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         sectionInset: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     )
     
-    
+    var spinner = UIActivityIndicatorView(style: .whiteLarge)
     var organizations = [Organization]()
     
     override func viewDidLoad() {
@@ -44,7 +44,15 @@ class HomeViewController: UIViewController {
         mainView.roundCorners(radius: 20.0, borderWidth: 2.0, borderColor: .white)
         loginButton.roundCorners(radius: 10.0)
         
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        mainView.addSubview(spinner)
+
+        spinner.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: mainView.centerYAnchor).isActive = true
+        
         NetworkManager().getHomeList { (list, errorString) in
+            self.spinner.stopAnimating()
             if let organizationList = list {
                 self.organizations = organizationList
                 self.collectionView.reloadData()
